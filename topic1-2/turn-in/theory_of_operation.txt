@@ -1,0 +1,1 @@
+The first line in console is printed due to the System.out.println in main method. It concats the strings and uses the getName getter method to print the Person's name. The run() and walk() methods both have System.out.println in their bodies, and are both called in the main method, thus causing the next 2 lines to print in console.
