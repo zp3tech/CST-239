@@ -1,5 +1,12 @@
-package app;
+package products;
 
+/**
+ * A SalableProduct is an object that has name and description as Strings, an
+ * integer quantity, and a float unitPrice fields.
+ * 
+ * @author pahlz
+ *
+ */
 public class SalableProduct {
 	private String name;
 	private String description;
@@ -13,6 +20,13 @@ public class SalableProduct {
 		this.unitPrice = unitPrice;
 	}
 
+	/**
+	 * Prints the SalableProduct object in the following format:
+	 * <p>
+	 * [name]: [description] <br>
+	 * $[unitPrice] Quantity: [quantity] <br>
+	 * Total Cost: $[unitPrice*quantity]
+	 */
 	public void print() {
 		System.out.println();
 		System.out.println(name + ": " + description);
