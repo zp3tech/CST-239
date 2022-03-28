@@ -78,6 +78,15 @@ public class StoreFront {
 	}
 
 	/**
+	 * Empties cart item by item, returning to store's inventory
+	 */
+	public void emptyCart() {
+		for (SalableProduct item : cart.getCart()) {
+			deleteFromCart(item);
+		}
+	}
+
+	/**
 	 * Prints a receipt to the console showing all items from the cart and the total
 	 * price, then empties the cart.
 	 */

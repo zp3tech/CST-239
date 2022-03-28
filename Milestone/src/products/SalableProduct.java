@@ -7,7 +7,7 @@ package products;
  * @author pahlz
  *
  */
-public class SalableProduct {
+public class SalableProduct implements Comparable<SalableProduct> {
 	private String name;
 	private String description;
 	private int quantity;
@@ -28,10 +28,10 @@ public class SalableProduct {
 	 * Total Cost: $[unitPrice*quantity]
 	 */
 	public void print() {
-		System.out.println();
 		System.out.println(name + ": " + description);
 		System.out.println("$" + unitPrice + "   " + "Quantity: " + quantity);
 		System.out.println("Total Cost: $" + unitPrice * quantity);
+		System.out.println();
 	}
 
 	public float getUnitPrice() {
@@ -64,6 +64,15 @@ public class SalableProduct {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	/**
+	 * Comparison based on the name of the item and follows alphabetical ordering
+	 * rules that ignore case.
+	 */
+	@Override
+	public int compareTo(SalableProduct o) {
+		return this.getName().toLowerCase().compareTo(o.getName());
 	}
 
 }

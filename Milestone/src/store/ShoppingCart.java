@@ -16,11 +16,11 @@ public class ShoppingCart {
 	}
 
 	public void deleteFromCart(SalableProduct item) {
-		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).equals(item)) {
-				products.remove(i);
-			}
-		}
+		products.remove(item);
+	}
+
+	public ArrayList<SalableProduct> getCart() {
+		return products;
 	}
 
 	/**
@@ -29,12 +29,21 @@ public class ShoppingCart {
 	 */
 	public void viewCart() {
 		float totalPriceInCart = 0;
-		System.out.print("Your current cart: ");
+		System.out.println("Your current cart:\n");
 		for (SalableProduct item : products) {
 			item.print();
 			totalPriceInCart += item.getUnitPrice() * item.getQuantity();
 		}
 		System.out.println("The total price in cart is: $" + totalPriceInCart);
+	}
+
+	/**
+	 * Removes all items from the cart.
+	 */
+	public void emptyCart() {
+		for (SalableProduct item : products) {
+			products.remove(item);
+		}
 	}
 
 }

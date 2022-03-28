@@ -19,30 +19,31 @@ public class GameDriver {
 
 		// Welcome message
 		System.out.println("You approach the merchant's tent and he greets you with a large smile:");
-		System.out.println("\"Welcome to my store, weary traveler, what would you like to buy?\"");
+		System.out.println("\"Welcome to my store, weary traveler, what would you like to buy?\"\n");
 
 		im.store.viewStore();
-		System.out.println("\nPlease enter an action from the options below:");
-		System.out.println("The name of a product to add it to your cart,");
-		System.out.println("\"Cart\" to view your current cart,");
-		System.out.println("\"Store\" to view the current store,");
-		System.out.println("\"Remove\" to remove items from cart, ");
-		System.out.println("\"Checkout\" to purchase all items in your cart.");
-		System.out.println("\"Leave\" to leave the store without checking out.");
+
+		System.out.println("Please enter your action using the commands below:");
+		System.out.println("/add to add an item to your cart,");
+		System.out.println("/remove to remove items from cart, ");
+		System.out.println("/cart to view your current cart,");
+		System.out.println("/store to view the current store,");
+		System.out.println("/checkout to purchase all items in your cart.");
+		System.out.println("/leave to leave the store without checking out.");
 
 		String userIn = "";
 
-		while (!userIn.equals("leave")) {
+		while (!userIn.equals("/leave")) {
 			userIn = scnr.nextLine().toLowerCase().trim();
 			switch (userIn) {
-			case "cart":
+			case "/cart":
 				im.store.viewCart();
 				break;
-			case "store":
-				System.out.print("The current store:");
+			case "/store":
+				System.out.println("The current store:\n");
 				im.store.viewStore();
 				break;
-			case "remove":
+			case "/remove":
 				System.out.println("Enter the name of product to remove from cart:");
 				userIn = scnr.nextLine().toLowerCase().trim();
 				SalableProduct prodRemoved = im.findItem(userIn, im.store.getCart());
@@ -53,12 +54,16 @@ public class GameDriver {
 					System.out.println("You do not have " + userIn + " in your cart.");
 				}
 				break;
-			case "checkout":
+			case "/checkout":
 				im.store.checkout();
 				break;
-			case "leave":
+			case "/leave":
+				im.store.emptyCart();
+				System.out.println("All items in your cart are given back to the shopkeeper...");
 				break;
-			default:
+			case "/add":
+				System.out.println("Enter the name of product to add to your cart:");
+				userIn = scnr.nextLine().toLowerCase().trim();
 				SalableProduct prodAdded = im.findItem(userIn, im.store.getForSale());
 				// checks if itemBought is in store or not, else adds to cart
 				if (prodAdded != null) {
@@ -67,6 +72,9 @@ public class GameDriver {
 				} else {
 					System.out.println("The merchant is not selling an item named \"" + userIn + "\"");
 				}
+				break;
+			default:
+				System.out.println("invalid command.");
 			}
 		}
 
