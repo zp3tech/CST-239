@@ -64,8 +64,8 @@
 		<item key="nonavbar" value="false"/>
 		<item key="openinbrowser" value="false"/>
 		<item key="source" value="11"/>
-		<item key="antpath" value="D:\GCU\CST-239\topic1-3\javadoc.xml"/>
-		<item key="destdir" value="D:\GCU\CST-239\topic1-3\doc"/>
+		<item key="antpath" value="D:\GCU\CST-239\Milestone\javadoc.xml"/>
+		<item key="destdir" value="D:\GCU\CST-239\Milestone\doc"/>
 		<section name="projects">
 			<section name="topic1-2">
 				<item key="href" value=""/>
@@ -82,6 +82,11 @@
 				<item key="destdir" value="D:\GCU\CST-239\topic1-3\doc"/>
 				<item key="antpath" value="D:\GCU\CST-239\topic1-3\javadoc.xml"/>
 			</section>
+			<section name="Milestone">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\Milestone\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\Milestone\javadoc.xml"/>
+			</section>
 		</section>
 	</section>
 	<section name="RefactoringWizard.preview">
@@ -97,5 +102,14 @@
 	<section name="RenameInformationPopup">
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item key="renameSubpackages" value="false"/>
+		<item key="updateTextualMatches" value="false"/>
+		<item key="updateQualifiedNames" value="false"/>
+		<item key="patterns" value="*"/>
+		<item key="updateSimilarElements" value="false"/>
+		<item key="updateSimilarElementsMatchStrategy" value="1"/>
+	</section>
+	<section name="SelfEncapsulateFieldWizard">
+		<item key="GenerateJavadoc" value="false"/>
 	</section>
 </section>

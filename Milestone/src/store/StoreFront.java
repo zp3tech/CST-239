@@ -32,11 +32,7 @@ public class StoreFront {
 	}
 
 	public void sell(SalableProduct sold) {
-		for (int i = 0; i < forSale.size(); i++) {
-			if (forSale.get(i).equals(sold)) {
-				forSale.remove(i);
-			}
-		}
+		forSale.remove(sold);
 	}
 
 	/**
