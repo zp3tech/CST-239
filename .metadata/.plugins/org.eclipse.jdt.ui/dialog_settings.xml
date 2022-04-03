@@ -52,7 +52,7 @@
 		<item key="fromStandard" value="true"/>
 		<item key="docletname" value=""/>
 		<item key="docletpath" value=""/>
-		<item key="access" value="public"/>
+		<item key="access" value="private"/>
 		<item key="use" value="true"/>
 		<item key="author" value="true"/>
 		<item key="version" value="true"/>
@@ -64,8 +64,8 @@
 		<item key="nonavbar" value="false"/>
 		<item key="openinbrowser" value="false"/>
 		<item key="source" value="11"/>
-		<item key="antpath" value="D:\GCU\CST-239\Milestone\javadoc.xml"/>
-		<item key="destdir" value="D:\GCU\CST-239\Milestone\doc"/>
+		<item key="antpath" value="D:\GCU\CST-239\topic4-1d\javadoc.xml"/>
+		<item key="destdir" value="D:\GCU\CST-239\topic4-1d\doc"/>
 		<section name="projects">
 			<section name="topic1-2">
 				<item key="href" value=""/>
@@ -86,6 +86,26 @@
 				<item key="href" value=""/>
 				<item key="destdir" value="D:\GCU\CST-239\Milestone\doc"/>
 				<item key="antpath" value="D:\GCU\CST-239\Milestone\javadoc.xml"/>
+			</section>
+			<section name="topic4-1a">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\topic4-1a\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic4-1a\javadoc.xml"/>
+			</section>
+			<section name="topic4-1b">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\topic4-1b\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic4-1b\javadoc.xml"/>
+			</section>
+			<section name="topic4-1c">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\topic4-1c\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic4-1c\javadoc.xml"/>
+			</section>
+			<section name="topic4-1d">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\topic4-1d\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic4-1d\javadoc.xml"/>
 			</section>
 		</section>
 	</section>
