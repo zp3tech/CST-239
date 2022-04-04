@@ -11,6 +11,11 @@ package products;
 public class Health extends SalableProduct {
 	private int healthRegen;
 
+	public Health() {
+		super();
+		this.setHealthRegen(0);
+	}
+
 	public Health(String name, String description, int quantity, float unitPrice, int healthRegen) {
 		super(name, description, quantity, unitPrice);
 		this.setHealthRegen(healthRegen);

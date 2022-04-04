@@ -2,8 +2,6 @@ INDEX VERSION 1.131+D:\GCU\CST-239\.metadata\.plugins\org.eclipse.jdt.core
 1811290943.index
 3309670600.index
 3619123862.index
-3297344787.index
-1424821572.index
 3541700825.index
 1242775907.index
 2753372239.index
@@ -11,5 +9,4 @@ INDEX VERSION 1.131+D:\GCU\CST-239\.metadata\.plugins\org.eclipse.jdt.core
 981054956.index
 1518797721.index
 726397412.index
-1790955384.index
 1865797976.index

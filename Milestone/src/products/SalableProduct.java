@@ -13,7 +13,15 @@ public class SalableProduct implements Comparable<SalableProduct> {
 	private int quantity;
 	private float unitPrice;
 
+	public SalableProduct() {
+		name = "";
+		description = "";
+		quantity = 0;
+		unitPrice = 0f;
+	}
+
 	public SalableProduct(String name, String description, int quantity, float unitPrice) {
+		super();
 		this.name = name;
 		this.description = description;
 		this.quantity = quantity;

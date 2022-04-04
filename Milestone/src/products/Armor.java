@@ -14,6 +14,12 @@ public class Armor extends SalableProduct {
 	private int protection;
 	private int weight;
 
+	public Armor() {
+		super();
+		protection = 0;
+		weight = 0;
+	}
+
 	public Armor(String name, String description, int quantity, float unitPrice, int protection, int weight) {
 		super(name, description, quantity, unitPrice);
 		this.setProtection(protection);

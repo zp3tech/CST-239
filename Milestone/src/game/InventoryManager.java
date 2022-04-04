@@ -1,6 +1,12 @@
 package game;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import products.Armor;
 import products.Health;
@@ -18,18 +24,35 @@ import store.StoreFront;
 public class InventoryManager {
 	StoreFront store = new StoreFront(true);
 
-	/**
-	 * This constructor calls a method that will be updated in the future with more
-	 * precise initial conditions for the store.
-	 */
 	public InventoryManager() {
-		initializeInventory();
+		basicInventoryInit();
+		try {
+			jsonWeaponsInit("assets/special-weapons.json");
+			jsonArmorInit("assets/special-armor.json");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
-	/**
-	 * This is the default starting inventory of the store.
-	 */
-	public void initializeInventory() {
+	public void jsonWeaponsInit(String filename) throws IOException {
+		ObjectMapper om = new ObjectMapper();
+		List<SalableProduct> inventory = om.readValue(new File(filename), new TypeReference<List<SalableProduct>>() {
+		});
+		for (SalableProduct x : inventory) {
+			store.stock(x);
+		}
+	}
+
+	public void jsonArmorInit(String filename) throws IOException {
+		ObjectMapper om = new ObjectMapper();
+		List<Armor> inventory = om.readValue(new File(filename), new TypeReference<List<Armor>>() {
+		});
+		for (Armor x : inventory) {
+			store.stock(x);
+		}
+	}
+
+	public void basicInventoryInit() {
 		Weapon sword = new Weapon("Sword", "an iron sword of low quality", 1, (float) 9.99, 10);
 		Weapon axe = new Weapon("Axe", "an iron axe of low quality", 1, (float) 13.99, 14);
 		Armor leather = new Armor("Leather Armor", "light armor made of leather", 1, (float) 25.00, 25, 10);

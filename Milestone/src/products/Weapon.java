@@ -11,6 +11,11 @@ package products;
 public class Weapon extends SalableProduct {
 	private int dmg;
 
+	public Weapon() {
+		super();
+		dmg = 0;
+	}
+
 	public Weapon(String name, String description, int quantity, float unitPrice, int dmg) {
 		super(name, description, quantity, unitPrice);
 		this.setDmg(dmg);

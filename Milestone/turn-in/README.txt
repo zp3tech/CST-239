@@ -10,7 +10,7 @@ part1: https://www.loom.com/share/573dfa9b10794f7fb5606fcf409b74ef
 part2: https://www.loom.com/share/9ced80443e1e4a61a31f6756ad5acb1e 
 
 Milestone 4 video link:
-
+https://www.loom.com/share/70efa6166ebf404a958497cf48f3f4bf 
 
 Milestone 5 video link:
 
