@@ -30,6 +30,7 @@ public class GameDriver {
 		System.out.println("/store to view the current store,");
 		System.out.println("/checkout to purchase all items in your cart.");
 		System.out.println("/leave to leave the store without checking out.");
+		System.out.println("/sort to change the sort order of products in the store.");
 
 		String userIn = "";
 
@@ -73,9 +74,33 @@ public class GameDriver {
 					System.out.println("The merchant is not selling an item named \"" + userIn + "\"");
 				}
 				break;
+			case "/sort":
+				System.out.println("Enter 0 to sort by name, ascending");
+				System.out.println("Enter 1 to sort by name, descending");
+				System.out.println("Enter 2 to sort by price, ascending");
+				System.out.println("Enter 3 to sort by price, descending");
+				userIn = scnr.nextLine().trim();
+				switch (userIn) {
+				case "0":
+					im.store.setSortSetting(0);
+					break;
+				case "1":
+					im.store.setSortSetting(1);
+					break;
+				case "2":
+					im.store.setSortSetting(2);
+					break;
+				case "3":
+					im.store.setSortSetting(3);
+					break;
+				default:
+					System.out.println("invalid setting.");
+				}
+				break;
 			default:
 				System.out.println("invalid command.");
 			}
+
 		}
 
 		System.out.println("You leave as the merchant continues to eye you greedily.");

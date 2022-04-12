@@ -36,9 +36,9 @@ public class InventoryManager {
 
 	public void jsonWeaponsInit(String filename) throws IOException {
 		ObjectMapper om = new ObjectMapper();
-		List<SalableProduct> inventory = om.readValue(new File(filename), new TypeReference<List<SalableProduct>>() {
+		List<Weapon> inventory = om.readValue(new File(filename), new TypeReference<List<Weapon>>() {
 		});
-		for (SalableProduct x : inventory) {
+		for (Weapon x : inventory) {
 			store.stock(x);
 		}
 	}
