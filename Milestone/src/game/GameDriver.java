@@ -1,25 +1,50 @@
 package game;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.Scanner;
 
 import products.SalableProduct;
 
 /**
  * The GameDriver class houses the main method and contains menu and logic for
- * player to utilize store in the console.
+ * player to utilize store in the console. Acts as client to server created in
+ * Inventory Manager.
  * 
  * @author pahlz
  *
  */
 public class GameDriver {
-	public static InventoryManager im = new InventoryManager();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
+
+		Socket clientSocket;
+		PrintWriter out;
+		BufferedReader in;
+
+		// attempt to connect to server as a client.
+		try {
+			clientSocket = new Socket("127.0.1", 6666);
+			out = new PrintWriter(clientSocket.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+		} catch (IOException e) {
+			System.out.println("You approach an empty stall... there's a sign up that reads:");
+			System.out.println("There's no SERVER here!!! Go away until I can find one and START their employment!");
+			return;
+		}
+
 		Scanner scnr = new Scanner(System.in);
 
 		// Welcome message
 		System.out.println("You approach the merchant's tent and he greets you with a large smile:");
 		System.out.println("\"Welcome to my store, weary traveler, what would you like to buy?\"\n");
+
+		InventoryManager im = new InventoryManager();
+		im.basicInventoryInit();
 
 		im.store.viewStore();
 
@@ -40,6 +65,18 @@ public class GameDriver {
 			case "/cart":
 				im.store.viewCart();
 				break;
+			case "/secret":
+				// checks server if secret items have been added to shop
+				out.println("store-ping");
+				try {
+					String fromServ = in.readLine();
+				} catch (SocketTimeoutException e) {
+
+				}
+				if (in.readLine().equals("yes")) {
+					im.jsonArmorInit("assets/special-armor.json");
+					im.jsonWeaponsInit("assets/special-weapons.json");
+				}
 			case "/store":
 				System.out.println("The current store:\n");
 				im.store.viewStore();
@@ -97,14 +134,20 @@ public class GameDriver {
 					System.out.println("invalid setting.");
 				}
 				break;
+
 			default:
 				System.out.println("invalid command.");
 			}
-
 		}
 
 		System.out.println("You leave as the merchant continues to eye you greedily.");
+		out.println("close");
 		scnr.close();
+		try {
+			clientSocket.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

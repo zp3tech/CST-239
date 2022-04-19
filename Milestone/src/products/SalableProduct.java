@@ -1,5 +1,8 @@
 package products;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * A SalableProduct is an object that has name and description as Strings, an
  * integer quantity, and a float unitPrice fields.
@@ -26,6 +29,17 @@ public class SalableProduct implements Comparable<SalableProduct> {
 		this.description = description;
 		this.quantity = quantity;
 		this.unitPrice = unitPrice;
+	}
+
+	/**
+	 * Converts SalableProduct object into a JSON string
+	 * 
+	 * @return Returns the string
+	 */
+	public String toJSON() throws JsonProcessingException {
+		ObjectMapper om = new ObjectMapper();
+		String json = om.writeValueAsString(this);
+		return json;
 	}
 
 	/**

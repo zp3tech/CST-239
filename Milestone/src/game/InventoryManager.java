@@ -15,24 +15,15 @@ import products.Weapon;
 import store.StoreFront;
 
 /**
- * This class initializes the store front that player will be interacting with
- * in the game.
+ * This class initializes the server containing the store front that the player
+ * will be interacting with in the game.
  * 
  * @author pahlz
  *
  */
 public class InventoryManager {
 	StoreFront store = new StoreFront(true);
-
-	public InventoryManager() {
-		basicInventoryInit();
-		try {
-			jsonWeaponsInit("assets/special-weapons.json");
-			jsonArmorInit("assets/special-armor.json");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	public boolean secrets = false;
 
 	public void jsonWeaponsInit(String filename) throws IOException {
 		ObjectMapper om = new ObjectMapper();
@@ -84,4 +75,27 @@ public class InventoryManager {
 		}
 		return foundItem;
 	}
+
+//	/**
+//	 * the server creates the InventoryManager with basicInventoryInit() ran.
+//	 * 
+//	 * @param args
+//	 * @throws IOException
+//	 */
+//	public static void main(String[] args) throws IOException {
+//		Socket adminSocket;
+//		PrintWriter out;
+//		BufferedReader in;
+//
+//		// attempt to connect to server as a client.
+//		try {
+//			adminSocket = new Socket("127.0.1", 6666);
+//			out = new PrintWriter(adminSocket.getOutputStream(), true);
+//			in = new BufferedReader(new InputStreamReader(adminSocket.getInputStream()));
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//		Scanner scnr = new Scanner(System.in);
+//	}
 }

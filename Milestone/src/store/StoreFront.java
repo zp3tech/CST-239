@@ -13,9 +13,10 @@ import products.SalableProduct;
  *
  */
 public class StoreFront {
-	private ShoppingCart cart = new ShoppingCart();
 	private boolean isOpen;
+	private ShoppingCart cart = new ShoppingCart();
 	private ArrayList<SalableProduct> forSale = new ArrayList<SalableProduct>();
+	private ArrayList<SalableProduct> playerInv = new ArrayList<SalableProduct>();
 	private int sortSetting = 0;
 
 	public StoreFront(boolean isOpen) {
@@ -81,6 +82,13 @@ public class StoreFront {
 		return forSale;
 	}
 
+	/**
+	 * @return The ArrayList containing all items purchased by players.
+	 */
+	public ArrayList<SalableProduct> getPlayerInv() {
+		return playerInv;
+	}
+
 	public void addToCart(SalableProduct item) {
 		cart.addToCart(item);
 		this.sell(item);
@@ -123,6 +131,7 @@ public class StoreFront {
 		for (SalableProduct item : purchased) {
 			item.print();
 			totalPrice += item.getQuantity() * item.getUnitPrice();
+			playerInv.add(item);
 		}
 		System.out.println("Your total price is: $" + totalPrice);
 		cart = new ShoppingCart();

@@ -56,7 +56,7 @@ public class Client {
 		clientSocket.close();
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// creates client and connects it to server
 		Client client = new Client();
 		client.start("127.0.1", 6666);
@@ -75,6 +75,9 @@ public class Client {
 			System.out.println("Server response was " + response);
 			if (response.equals("QUIT"))
 				break;
+
+			// sleeps for 5 seconds so can see Server running
+			Thread.sleep(5000);
 		}
 
 		client.cleanup();

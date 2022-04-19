@@ -1,0 +1,65 @@
+[ {
+  "name" : "Sword",
+  "description" : "an iron sword of low quality",
+  "quantity" : 1,
+  "unitPrice" : 9.99,
+  "dmg" : 10
+}, {
+  "name" : "Axe",
+  "description" : "an iron axe of low quality",
+  "quantity" : 1,
+  "unitPrice" : 13.99,
+  "dmg" : 14
+}, {
+  "name" : "Leather Armor",
+  "description" : "light armor made of leather",
+  "quantity" : 1,
+  "unitPrice" : 25.0,
+  "protection" : 25,
+  "weight" : 10
+}, {
+  "name" : "Plate Armor",
+  "description" : "heavy plate armor",
+  "quantity" : 1,
+  "unitPrice" : 100.0,
+  "protection" : 50,
+  "weight" : 75
+}, {
+  "name" : "Red Potion",
+  "description" : "restores 10hp",
+  "quantity" : 2,
+  "unitPrice" : 5.0,
+  "healthRegen" : 10
+}, {
+  "name" : "Cursed Dagger",
+  "description" : "A silver dagger with an odd aura...",
+  "quantity" : 1,
+  "unitPrice" : 6.66,
+  "dmg" : 666
+}, {
+  "name" : "Heavy Crossbow",
+  "description" : "Uses heavy bolts",
+  "quantity" : 1,
+  "unitPrice" : 50.0,
+  "dmg" : 1
+}, {
+  "name" : "Heavy Bolts",
+  "description" : "A set of heavy bolts",
+  "quantity" : 10,
+  "unitPrice" : 1.0,
+  "dmg" : 50
+}, {
+  "name" : "Mithril",
+  "description" : "Lightweight and super strong",
+  "quantity" : 1,
+  "unitPrice" : 1500.0,
+  "protection" : 88,
+  "weight" : 10
+}, {
+  "name" : "Dragonscale",
+  "description" : "Armor made from scales of a red dragon",
+  "quantity" : 1,
+  "unitPrice" : 9999.0,
+  "protection" : 99,
+  "weight" : 50
+} ]
