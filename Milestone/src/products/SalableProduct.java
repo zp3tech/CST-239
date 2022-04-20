@@ -56,6 +56,17 @@ public class SalableProduct implements Comparable<SalableProduct> {
 		System.out.println();
 	}
 
+	public String toString() {
+		return name + ": " + description + "\n" + "$" + unitPrice + "   " + "Quantity: " + quantity + "\n"
+				+ "Total Cost: $" + unitPrice * quantity + "\n\n";
+	}
+
+	public static void main(String[] args) {
+		SalableProduct test = new SalableProduct("axe", "dull axe", 1, (float) 6.99);
+		String testString = test.toString();
+		System.out.println(testString);
+	}
+
 	public float getUnitPrice() {
 		return unitPrice;
 	}

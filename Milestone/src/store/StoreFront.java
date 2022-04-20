@@ -18,6 +18,7 @@ public class StoreFront {
 	private ArrayList<SalableProduct> forSale = new ArrayList<SalableProduct>();
 	private ArrayList<SalableProduct> playerInv = new ArrayList<SalableProduct>();
 	private int sortSetting = 0;
+	private String outputStrings = "";
 
 	public StoreFront(boolean isOpen) {
 		this.isOpen = isOpen;
@@ -54,25 +55,18 @@ public class StoreFront {
 	 * 
 	 */
 	public void viewStore() {
-		switch (sortSetting) {
-		case 0:
-			sortByName(forSale);
-			break;
-		case 1:
-			sortByName(forSale);
-			sortReverse(forSale);
-			break;
-		case 2:
-			sortByPrice(forSale);
-			break;
-		case 3:
-			sortByPrice(forSale);
-			sortReverse(forSale);
-			break;
-		}
+		sortStore();
 		for (SalableProduct item : forSale) {
 			item.print();
 		}
+	}
+
+	public String viewStoreString() {
+		outputStrings = "";
+		for (SalableProduct item : forSale) {
+			outputStrings = outputStrings.concat(item.toString());
+		}
+		return outputStrings;
 	}
 
 	/**
@@ -153,5 +147,24 @@ public class StoreFront {
 
 	private void sortReverse(ArrayList<SalableProduct> list) {
 		Collections.reverse(list);
+	}
+
+	private void sortStore() {
+		switch (sortSetting) {
+		case 0:
+			sortByName(forSale);
+			break;
+		case 1:
+			sortByName(forSale);
+			sortReverse(forSale);
+			break;
+		case 2:
+			sortByPrice(forSale);
+			break;
+		case 3:
+			sortByPrice(forSale);
+			sortReverse(forSale);
+			break;
+		}
 	}
 }

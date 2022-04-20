@@ -76,26 +76,13 @@ public class InventoryManager {
 		return foundItem;
 	}
 
-//	/**
-//	 * the server creates the InventoryManager with basicInventoryInit() ran.
-//	 * 
-//	 * @param args
-//	 * @throws IOException
-//	 */
-//	public static void main(String[] args) throws IOException {
-//		Socket adminSocket;
-//		PrintWriter out;
-//		BufferedReader in;
-//
-//		// attempt to connect to server as a client.
-//		try {
-//			adminSocket = new Socket("127.0.1", 6666);
-//			out = new PrintWriter(adminSocket.getOutputStream(), true);
-//			in = new BufferedReader(new InputStreamReader(adminSocket.getInputStream()));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//
-//		Scanner scnr = new Scanner(System.in);
-//	}
+	/**
+	 * Connects InventoryManager with MultiThreadServer with admin options.
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
+	public static void main(String[] args) throws IOException {
+
+	}
 }

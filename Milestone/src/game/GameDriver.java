@@ -2,10 +2,8 @@ package game;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.SocketTimeoutException;
 import java.util.Scanner;
 
 import products.SalableProduct;
@@ -26,16 +24,16 @@ public class GameDriver {
 		PrintWriter out;
 		BufferedReader in;
 
-		// attempt to connect to server as a client.
-		try {
-			clientSocket = new Socket("127.0.1", 6666);
-			out = new PrintWriter(clientSocket.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-		} catch (IOException e) {
-			System.out.println("You approach an empty stall... there's a sign up that reads:");
-			System.out.println("There's no SERVER here!!! Go away until I can find one and START their employment!");
-			return;
-		}
+//		// attempt to connect to server as a client.
+//		try {
+//			clientSocket = new Socket("127.0.1", 6666);
+//			out = new PrintWriter(clientSocket.getOutputStream(), true);
+//			in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+//		} catch (IOException e) {
+//			System.out.println("You approach an empty stall... there's a sign up that reads:");
+//			System.out.println("There's no SERVER here!!! Go away until I can find one and START their employment!");
+//			return;
+//		}
 
 		Scanner scnr = new Scanner(System.in);
 
@@ -62,25 +60,26 @@ public class GameDriver {
 		while (!userIn.equals("/leave")) {
 			userIn = scnr.nextLine().toLowerCase().trim();
 			switch (userIn) {
+			case "/store":
+				System.out.println("The current store:\n");
+//				im.store.viewStore();
+				System.out.println(im.store.viewStoreString());
+				break;
 			case "/cart":
 				im.store.viewCart();
 				break;
 			case "/secret":
-				// checks server if secret items have been added to shop
-				out.println("store-ping");
-				try {
-					String fromServ = in.readLine();
-				} catch (SocketTimeoutException e) {
-
-				}
-				if (in.readLine().equals("yes")) {
-					im.jsonArmorInit("assets/special-armor.json");
-					im.jsonWeaponsInit("assets/special-weapons.json");
-				}
-			case "/store":
-				System.out.println("The current store:\n");
-				im.store.viewStore();
-				break;
+//				// checks server if secret items have been added to shop
+//				out.println("store-ping");
+//				try {
+//					String fromServ = in.readLine();
+//				} catch (SocketTimeoutException e) {
+//
+//				}
+//				if (in.readLine().equals("yes")) {
+//					im.jsonArmorInit("assets/special-armor.json");
+//					im.jsonWeaponsInit("assets/special-weapons.json");
+//				}
 			case "/remove":
 				System.out.println("Enter the name of product to remove from cart:");
 				userIn = scnr.nextLine().toLowerCase().trim();
@@ -141,13 +140,13 @@ public class GameDriver {
 		}
 
 		System.out.println("You leave as the merchant continues to eye you greedily.");
-		out.println("close");
 		scnr.close();
-		try {
-			clientSocket.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		out.println("close");
+//		try {
+//			clientSocket.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }
