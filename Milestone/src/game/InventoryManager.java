@@ -1,9 +1,14 @@
 package game;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,8 +20,7 @@ import products.Weapon;
 import store.StoreFront;
 
 /**
- * This class initializes the server containing the store front that the player
- * will be interacting with in the game.
+ * This class connects an admin to the server.
  * 
  * @author pahlz
  *
@@ -77,14 +81,60 @@ public class InventoryManager {
 	}
 
 	/**
-	 * Connects InventoryManager with MultiThreadServer with admin options.
+	 * Handles incoming messages from server and displays to console of user of this
+	 * method.
+	 * 
+	 * @param in The BufferedReader that client uses to receive server's message
+	 * @throws IOException
+	 */
+	public static void readMessage(BufferedReader in) throws IOException {
+		System.out.println("server replies:");
+		String readMessage;
+		while ((readMessage = in.readLine()) != null) {
+			System.out.println(readMessage);
+			if (!in.ready())
+				break;
+		}
+		System.out.println("end of server message");
+	}
+
+	/**
+	 * Connects InventoryManager with MultiThreadServer with admin options. <br>
+	 * Admin commands are sent to server in all caps.
 	 * 
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
-		basicInventoryInit();
+	public static synchronized void main(String[] args) throws IOException {
 
-		// TODO connect to server
+		PrintWriter out = null;
+		BufferedReader in = null;
+		Scanner scnr = new Scanner(System.in);
+
+		try (Socket socket = new Socket("localhost", 1234)) {
+			out = new PrintWriter(socket.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			String line = "";
+
+			System.out.println("Admin connected to server on " + socket.getPort());
+
+			// collect user's input -> send to server -> print server's reply
+			while (!"/leave".equalsIgnoreCase(line)) {
+				line = scnr.nextLine().toUpperCase().trim();
+				out.println(line);
+				out.flush();
+				readMessage(in);
+			}
+
+		} catch (IOException e) {
+			System.out.println("Check if server is running.");
+			e.printStackTrace();
+		} finally {
+			// exit message
+			scnr.close();
+			out.close();
+			in.close();
+			System.out.println("Thank you for your administration.");
+		}
 	}
 }

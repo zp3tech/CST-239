@@ -58,7 +58,7 @@ public class SalableProduct implements Comparable<SalableProduct> {
 
 	public String toString() {
 		return name + ": " + description + "\n" + "$" + unitPrice + "   " + "Quantity: " + quantity + "\n"
-				+ "Total Cost: $" + unitPrice * quantity + "\n\n";
+				+ "Total Cost: $" + unitPrice * quantity + "\n";
 	}
 
 	public static void main(String[] args) {

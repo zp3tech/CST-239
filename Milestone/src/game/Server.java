@@ -58,7 +58,7 @@ public class Server {
 			} else if (adminInput.toUpperCase().equals("R")) {
 				// creates and completely fills an Inventory Manager.
 				InventoryManager allItems = new InventoryManager();
-				allItems.basicInventoryInit();
+				InventoryManager.basicInventoryInit();
 				try {
 					allItems.jsonWeaponsInit("assets/special-weapons.json");
 					allItems.jsonArmorInit("assets/special-armor.json");

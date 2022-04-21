@@ -64,7 +64,7 @@ public class StoreFront {
 	public String viewStoreString() {
 		outputStrings = "";
 		for (SalableProduct item : forSale) {
-			outputStrings = outputStrings.concat(item.toString());
+			outputStrings = outputStrings.concat(item.toString() + "\n");
 		}
 		return outputStrings;
 	}
