@@ -22,10 +22,10 @@ import store.StoreFront;
  *
  */
 public class InventoryManager {
-	StoreFront store = new StoreFront(true);
+	public static StoreFront store = new StoreFront(true);
 	public boolean secrets = false;
 
-	public void jsonWeaponsInit(String filename) throws IOException {
+	public static void jsonWeaponsInit(String filename) throws IOException {
 		ObjectMapper om = new ObjectMapper();
 		List<Weapon> inventory = om.readValue(new File(filename), new TypeReference<List<Weapon>>() {
 		});
@@ -34,7 +34,7 @@ public class InventoryManager {
 		}
 	}
 
-	public void jsonArmorInit(String filename) throws IOException {
+	public static void jsonArmorInit(String filename) throws IOException {
 		ObjectMapper om = new ObjectMapper();
 		List<Armor> inventory = om.readValue(new File(filename), new TypeReference<List<Armor>>() {
 		});
@@ -43,7 +43,7 @@ public class InventoryManager {
 		}
 	}
 
-	public void basicInventoryInit() {
+	public static void basicInventoryInit() {
 		Weapon sword = new Weapon("Sword", "an iron sword of low quality", 1, (float) 9.99, 10);
 		Weapon axe = new Weapon("Axe", "an iron axe of low quality", 1, (float) 13.99, 14);
 		Armor leather = new Armor("Leather Armor", "light armor made of leather", 1, (float) 25.00, 25, 10);
@@ -66,7 +66,7 @@ public class InventoryManager {
 	 * @return Returns the SalableProduct object found in list; if not found,
 	 *         returns null.
 	 */
-	public SalableProduct findItem(String itemName, ArrayList<SalableProduct> list) {
+	public static SalableProduct findItem(String itemName, ArrayList<SalableProduct> list) {
 		SalableProduct foundItem = null;
 		for (SalableProduct item : list) {
 			if (item.getName().toLowerCase().equals(itemName)) {
@@ -83,6 +83,8 @@ public class InventoryManager {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
+		basicInventoryInit();
 
+		// TODO connect to server
 	}
 }

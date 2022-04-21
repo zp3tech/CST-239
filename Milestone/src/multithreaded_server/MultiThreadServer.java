@@ -11,9 +11,8 @@ import game.InventoryManager;
 
 public class MultiThreadServer {
 	public static void main(String[] args) {
+
 		ServerSocket server = null;
-		InventoryManager im = new InventoryManager();
-		im.basicInventoryInit();
 
 		try {
 			// server "listening" on port 1234
@@ -69,7 +68,10 @@ public class MultiThreadServer {
 				String line;
 				while ((line = in.readLine()) != null) {
 					System.out.printf(" sent from client: %s\n", line);
-					out.println(line);
+					if (line.equals("/store")) {
+						String outString = InventoryManager.store.viewStoreString();
+						out.println(outString);
+					}
 				}
 
 			} catch (IOException e) {

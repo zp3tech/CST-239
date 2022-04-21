@@ -2,6 +2,7 @@ package game;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
@@ -20,9 +21,7 @@ public class GameDriver {
 
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 
-		Socket clientSocket;
-		PrintWriter out;
-		BufferedReader in;
+//		Socket clientSocket;
 
 //		// attempt to connect to server as a client.
 //		try {
@@ -35,7 +34,32 @@ public class GameDriver {
 //			return;
 //		}
 
+		PrintWriter out;
+		BufferedReader in;
 		Scanner scnr = new Scanner(System.in);
+
+		try (Socket socket = new Socket("localhost", 1234)) {
+			out = new PrintWriter(socket.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+			String line = "";
+
+			while (!"/leave".equalsIgnoreCase(line)) {
+				line = scnr.nextLine();
+
+				out.println(line);
+				out.flush();
+
+				// display server reply to console
+
+				System.out.println(in.readLine());
+
+			}
+		} catch (IOException e) {
+			System.out.println("You approach an empty stall... there's a sign up that reads:");
+			System.out.println("There's no SERVER here!!! Go away until I can find one and START their employment!");
+			return;
+		}
 
 		// Welcome message
 		System.out.println("You approach the merchant's tent and he greets you with a large smile:");
