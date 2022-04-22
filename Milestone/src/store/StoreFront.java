@@ -18,6 +18,7 @@ public class StoreFront {
 	private ArrayList<SalableProduct> forSale = new ArrayList<SalableProduct>();
 	private ArrayList<SalableProduct> playerInv = new ArrayList<SalableProduct>();
 	private int sortSetting = 0;
+	private String outputStrings = "";
 
 	public StoreFront(boolean isOpen) {
 		this.isOpen = isOpen;
@@ -46,7 +47,7 @@ public class StoreFront {
 	/**
 	 * Prints all items for sale to the console.
 	 * <p>
-	 * Sort order is determined by sortSetting variable: <br>
+	 * Sort order is determined by sortSetting variable (0 by default): <br>
 	 * 0: by name, ascending. <br>
 	 * 1: by name, descending. <br>
 	 * 2: by price, ascending. <br>
@@ -54,25 +55,19 @@ public class StoreFront {
 	 * 
 	 */
 	public void viewStore() {
-		switch (sortSetting) {
-		case 0:
-			sortByName(forSale);
-			break;
-		case 1:
-			sortByName(forSale);
-			sortReverse(forSale);
-			break;
-		case 2:
-			sortByPrice(forSale);
-			break;
-		case 3:
-			sortByPrice(forSale);
-			sortReverse(forSale);
-			break;
-		}
+		sortStore();
 		for (SalableProduct item : forSale) {
 			item.print();
 		}
+	}
+
+	public String viewStoreString() {
+		outputStrings = "The current store:\n";
+		sortStore();
+		for (SalableProduct item : forSale) {
+			outputStrings = outputStrings.concat(item.toString() + "\n");
+		}
+		return outputStrings;
 	}
 
 	/**
@@ -103,6 +98,14 @@ public class StoreFront {
 		cart.viewCart();
 	}
 
+	public String viewCartString() {
+		outputStrings = "The current cart:\n";
+		for (SalableProduct item : this.getCart()) {
+			outputStrings = outputStrings.concat(item.toString() + "\n");
+		}
+		return outputStrings;
+	}
+
 	/**
 	 * 
 	 * @return The ArrayList containing all items currently in the player's cart.
@@ -123,18 +126,20 @@ public class StoreFront {
 	/**
 	 * Prints a receipt to the console showing all items from the cart and the total
 	 * price, then empties the cart.
+	 * 
+	 * @return The receipt of all purchased items with total price.
 	 */
-	public void checkout() {
-		ArrayList<SalableProduct> purchased = cart.getProductsInCart();
+	public String checkout() {
 		float totalPrice = 0;
-		System.out.println("Your Receipt:");
-		for (SalableProduct item : purchased) {
-			item.print();
+		String receipt = "YOUR RECEIPT:\n";
+		for (SalableProduct item : cart.getProductsInCart()) {
+			receipt = receipt.concat(item.toString() + "\n");
 			totalPrice += item.getQuantity() * item.getUnitPrice();
 			playerInv.add(item);
 		}
-		System.out.println("Your total price is: $" + totalPrice);
+		receipt = receipt.concat("Your total price is: $" + totalPrice);
 		cart = new ShoppingCart();
+		return receipt;
 	}
 
 	/**
@@ -153,5 +158,24 @@ public class StoreFront {
 
 	private void sortReverse(ArrayList<SalableProduct> list) {
 		Collections.reverse(list);
+	}
+
+	private void sortStore() {
+		switch (sortSetting) {
+		case 0:
+			sortByName(forSale);
+			break;
+		case 1:
+			sortByName(forSale);
+			sortReverse(forSale);
+			break;
+		case 2:
+			sortByPrice(forSale);
+			break;
+		case 3:
+			sortByPrice(forSale);
+			sortReverse(forSale);
+			break;
+		}
 	}
 }
