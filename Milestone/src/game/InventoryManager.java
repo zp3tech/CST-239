@@ -27,7 +27,6 @@ import store.StoreFront;
  */
 public class InventoryManager {
 	public static StoreFront store = new StoreFront(true);
-	public boolean secrets = false;
 
 	public static void jsonWeaponsInit(String filename) throws IOException {
 		ObjectMapper om = new ObjectMapper();
@@ -73,7 +72,7 @@ public class InventoryManager {
 	public static SalableProduct findItem(String itemName, ArrayList<SalableProduct> list) {
 		SalableProduct foundItem = null;
 		for (SalableProduct item : list) {
-			if (item.getName().toLowerCase().equals(itemName)) {
+			if (item.getName().equalsIgnoreCase(itemName)) {
 				foundItem = item;
 			}
 		}
@@ -88,14 +87,12 @@ public class InventoryManager {
 	 * @throws IOException
 	 */
 	public static void readMessage(BufferedReader in) throws IOException {
-		System.out.println("server replies:");
 		String readMessage;
 		while ((readMessage = in.readLine()) != null) {
 			System.out.println(readMessage);
 			if (!in.ready())
 				break;
 		}
-		System.out.println("end of server message");
 	}
 
 	/**
@@ -116,7 +113,12 @@ public class InventoryManager {
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			String line = "";
 
+			// connection message and admin instructions
 			System.out.println("Admin connected to server on " + socket.getPort());
+			System.out.println("Instructions for admin:");
+			System.out.println("Type /secret to add secret store items to shop.");
+			System.out.println("Type /r to create JSON file of all items currently in-game.");
+			System.out.println("Type /leave to exit.");
 
 			// collect user's input -> send to server -> print server's reply
 			while (!"/leave".equalsIgnoreCase(line)) {

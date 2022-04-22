@@ -23,14 +23,12 @@ public class GameDriver {
 	 * @throws IOException
 	 */
 	public static void readMessage(BufferedReader in) throws IOException {
-		System.out.println("server replies:");
 		String readMessage;
 		while ((readMessage = in.readLine()) != null) {
 			System.out.println(readMessage);
 			if (!in.ready())
 				break;
 		}
-		System.out.println("end of server message");
 	}
 
 	/**
@@ -43,8 +41,8 @@ public class GameDriver {
 		System.out.println("/cart to view your current cart,");
 		System.out.println("/store to view the current store,");
 		System.out.println("/checkout to purchase all items in your cart.");
-		System.out.println("/leave to leave the store without checking out.");
 		System.out.println("/sort to change the sort order of products in the store.");
+		System.out.println("/leave to leave the store without checking out.");
 		System.out.println("/help to repeat these instructions.");
 	}
 
@@ -75,6 +73,11 @@ public class GameDriver {
 			// collect user's input -> send to server -> print server's reply
 			while (!"/leave".equalsIgnoreCase(line)) {
 				line = scnr.nextLine().toLowerCase().trim();
+				if ("/help".equals(line)) {
+					help();
+					continue;
+				}
+
 				out.println(line);
 				out.flush();
 				readMessage(in);

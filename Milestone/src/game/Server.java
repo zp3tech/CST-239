@@ -28,9 +28,70 @@ public class Server {
 
 	public void start(int port) throws IOException {
 
+//		switch (userIn) {
+//		case "/store":
+//			return InventoryManager.store.viewStoreString();
+//		case "/cart":
+//			return InventoryManager.store.viewCartString();
+//
+//		case "/add":
+//			return "/add";
+//			System.out.println("Enter the name of product to add to your cart:");
+//			userIn = scnr.nextLine().toLowerCase().trim();
+//			SalableProduct prodAdded = im.findItem(userIn, im.store.getForSale());
+//			// checks if itemBought is in store or not, else adds to cart
+//			if (prodAdded != null) {
+//				im.store.addToCart(prodAdded);
+//				System.out.println(prodAdded.getName() + " was added to your cart.");
+//			} else {
+//				System.out.println("The merchant is not selling an item named \"" + userIn + "\"");
+//			}
+//		case "/remove":
+//			System.out.println("Enter the name of product to remove from cart:");
+//			Scanner scnr = new Scanner(System.in);
+//			userIn = scnr.nextLine().toLowerCase().trim();
+//			SalableProduct prodRemoved = InventoryManager.findItem(userIn, InventoryManager.store.getCart());
+//			if (prodRemoved != null) {
+//				InventoryManager.store.deleteFromCart(prodRemoved);
+//				System.out.println(prodRemoved.getName() + " was removed from your cart.");
+//			} else {
+//				System.out.println("You do not have " + userIn + " in your cart.");
+//			}
+//			break;
+//		case "/checkout":
+//			im.store.checkout();
+//			break;
+//		case "/sort":
+//			System.out.println("Enter 0 to sort by name, ascending");
+//			System.out.println("Enter 1 to sort by name, descending");
+//			System.out.println("Enter 2 to sort by price, ascending");
+//			System.out.println("Enter 3 to sort by price, descending");
+//			userIn = scnr.nextLine().trim();
+//			switch (userIn) {
+//			case "0":
+//				im.store.setSortSetting(0);
+//				break;
+//			case "1":
+//				im.store.setSortSetting(1);
+//				break;
+//			case "2":
+//				im.store.setSortSetting(2);
+//				break;
+//			case "3":
+//				im.store.setSortSetting(3);
+//				break;
+//			default:
+//				System.out.println("invalid setting.");
+//			}
+//			break;
+
+//		default:
+//			return "invalid command.";
+//		}
+
 		System.out.println("Instructions for admin:");
 		System.out.println("Type \"secret\" to add secret store items to shop");
-		System.out.println("Type \"R\" to create JSON file of all items in game.");
+		System.out.println("Type \"R\" to create JSON file of all items currently in-game.");
 		System.out.println("Type \"stop\" to stop server and exit.");
 
 		String secretItemsStocked = "no";
