@@ -91,7 +91,7 @@ public class MultiThreadServer {
 					switch (line) {
 					case "/leave":
 						InventoryManager.store.emptyCart();
-						break;
+						return;
 					case "/store":
 						out.println(InventoryManager.store.viewStoreString());
 						break;
@@ -167,7 +167,6 @@ public class MultiThreadServer {
 						allCurrentItems.addAll(InventoryManager.store.getPlayerInv());
 
 						LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
-//						now.toString().replaceAll(":", "");
 
 						// creates a JSON file to write all items to
 						BufferedWriter fileOut = new BufferedWriter(

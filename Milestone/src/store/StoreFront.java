@@ -61,6 +61,10 @@ public class StoreFront {
 		}
 	}
 
+	/**
+	 * 
+	 * @return Contents of store as string in console friendly format
+	 */
 	public String viewStoreString() {
 		outputStrings = "The current store:\n";
 		sortStore();

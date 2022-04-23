@@ -16,7 +16,9 @@ Milestone 5 video link:
 https://www.loom.com/share/cf0b36ec4b4743a3a5f6fff6065cf904 
 
 Milestone 6 video link:
-
+part1: https://www.loom.com/share/22d21ec424d54af58ecd5d2ce986f80a 
+part2: https://www.loom.com/share/be330bc309544d0fa521e37ab69670bf 
+part3: https://www.loom.com/share/b035d44bd8c34a90b4ec449954e8e913 
 
 Milestone 7 video link:
 
