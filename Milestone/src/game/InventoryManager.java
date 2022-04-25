@@ -128,15 +128,17 @@ public class InventoryManager {
 				readMessage(in);
 			}
 
-		} catch (IOException e) {
-			System.out.println("Check if server is running.");
-			e.printStackTrace();
-		} finally {
-			// exit message
+			// clean up
 			scnr.close();
 			out.close();
 			in.close();
+
+			// exit message
 			System.out.println("Thank you for your administration.");
+
+		} catch (IOException e) {
+			System.out.println("Check if server is running.");
+			e.printStackTrace();
 		}
 	}
 }

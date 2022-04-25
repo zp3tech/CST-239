@@ -21,4 +21,13 @@ part2: https://www.loom.com/share/be330bc309544d0fa521e37ab69670bf
 part3: https://www.loom.com/share/b035d44bd8c34a90b4ec449954e8e913 
 
 Milestone 7 video link:
+part1: https://www.loom.com/share/27dfe12c9f7b45f4a212e03fb5bab871 
+part2: https://www.loom.com/share/2849e75dd126426292b7604655cd8517  
+
+Milestone PowerPoint Presentation video link:
+https://www.loom.com/share/fff336371d3249eebaed01adb48d6455 
+
+Milestone Live Demonstration video link: 
+part1: https://www.loom.com/share/85959a0b082c4d8dbdef373600c607ae 
+part2: https://www.loom.com/share/38bd0a101e7c4c76a703faadcc6773f2 
 

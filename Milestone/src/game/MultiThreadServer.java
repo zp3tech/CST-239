@@ -184,6 +184,8 @@ public class MultiThreadServer {
 						fileOut.close();
 						out.println("JSON file with all current in-game items has been created in assets folder.");
 						break;
+					case "/LEAVE":
+						break;
 					default:
 						out.println("invalid command");
 					}

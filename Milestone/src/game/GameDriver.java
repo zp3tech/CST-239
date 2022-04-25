@@ -83,16 +83,18 @@ public class GameDriver {
 				readMessage(in);
 			}
 
+			// clean up
+			scnr.close();
+			out.close();
+			in.close();
+
+			// Exit message
+			System.out.println("You leave as the merchant continues to eye you greedily.");
+
 		} catch (IOException e) {
 			System.out.println("The merchant's stall is empty... there's a sign up that reads:");
 			System.out.println("There's no SERVER here!!! Go away until I can find one and START their employment!");
 			return;
-		} finally {
-			// Exit message
-			scnr.close();
-			out.close();
-			in.close();
-			System.out.println("You leave as the merchant continues to eye you greedily.");
 		}
 	}
 }
