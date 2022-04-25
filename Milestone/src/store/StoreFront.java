@@ -122,9 +122,10 @@ public class StoreFront {
 	 * Empties cart item by item, returning to store's inventory
 	 */
 	public void emptyCart() {
-		for (SalableProduct item : cart.getCart()) {
-			deleteFromCart(item);
+		for (int i = 0; i < cart.getCart().size(); i++) {
+			forSale.add(cart.getCart().get(i));
 		}
+		cart.getCart().clear();
 	}
 
 	/**
@@ -141,8 +142,8 @@ public class StoreFront {
 			totalPrice += item.getQuantity() * item.getUnitPrice();
 			playerInv.add(item);
 		}
-		receipt = receipt.concat("Your total price is: $" + totalPrice);
-		cart = new ShoppingCart();
+		receipt = receipt.concat("Your checkout total is: $" + totalPrice);
+		cart.getCart().clear();
 		return receipt;
 	}
 
@@ -164,7 +165,7 @@ public class StoreFront {
 		Collections.reverse(list);
 	}
 
-	private void sortStore() {
+	public void sortStore() {
 		switch (sortSetting) {
 		case 0:
 			sortByName(forSale);

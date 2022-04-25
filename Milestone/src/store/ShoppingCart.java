@@ -37,13 +37,4 @@ public class ShoppingCart {
 		System.out.println("The total price in cart is: $" + totalPriceInCart);
 	}
 
-	/**
-	 * Removes all items from the cart.
-	 */
-	public void emptyCart() {
-		for (SalableProduct item : products) {
-			products.remove(item);
-		}
-	}
-
 }
