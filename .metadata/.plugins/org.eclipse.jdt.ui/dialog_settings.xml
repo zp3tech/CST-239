@@ -83,6 +83,16 @@
 				<item key="destdir" value="D:\GCU\CST-239\topic6-3\doc"/>
 				<item key="antpath" value="D:\GCU\CST-239\topic6-3\javadoc.xml"/>
 			</section>
+			<section name="topic7-1a">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\topic7-1a\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic7-1a\javadoc.xml"/>
+			</section>
+			<section name="topic7-2">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\topic7-2\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic7-2\javadoc.xml"/>
+			</section>
 			<section name="topic6-1a">
 				<item key="href" value=""/>
 				<item key="destdir" value="D:\GCU\CST-239\topic6-1a\doc"/>
@@ -115,8 +125,8 @@
 			</section>
 			<section name="Milestone">
 				<item key="href" value=""/>
-				<item key="destdir" value="D:\GCU\CST-239\Milestone\doc"/>
-				<item key="antpath" value="D:\GCU\CST-239\Milestone\javadoc.xml"/>
+				<item key="destdir" value="D:\GCU\CST-239\topic6-3\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic6-3\javadoc.xml"/>
 			</section>
 			<section name="topic4-2">
 				<item key="href" value=""/>
@@ -132,6 +142,16 @@
 				<item key="href" value=""/>
 				<item key="destdir" value="D:\GCU\CST-239\topic6-2\doc"/>
 				<item key="antpath" value="D:\GCU\CST-239\topic6-2\javadoc.xml"/>
+			</section>
+			<section name="topic7-1b">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\topic7-1b\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic7-1b\javadoc.xml"/>
+			</section>
+			<section name="topic7-3">
+				<item key="href" value=""/>
+				<item key="destdir" value="D:\GCU\CST-239\topic7-3\doc"/>
+				<item key="antpath" value="D:\GCU\CST-239\topic7-3\javadoc.xml"/>
 			</section>
 			<section name="topic6-1b">
 				<item key="href" value=""/>
@@ -174,7 +194,7 @@
 		<item key="GenerateJavadoc" value="false"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item key="index" value="0"/>
+		<item key="index" value="1"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog2">
 		<item key="ShowStatusLine" value="true"/>
